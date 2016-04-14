@@ -1,6 +1,8 @@
 Slant projects
 ==============
 
+[![Join the chat at https://gitter.im/slantdotnet/Slant](https://badges.gitter.im/slantdotnet/Slant.svg)](https://gitter.im/slantdotnet/Slant?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ## Overview
 
 Slant is a several tools for ad-hoc and Agile application development with .NET. 
