@@ -11,7 +11,7 @@ This is a meta-repository that contains links and common description of the Slan
 
 ## Installation
 
-We recommend to install every tool as a [the NuGet package](https://www.nuget.org/packages/Slant.Configuration). 
+We recommend to install every tool as a the NuGet package.
 
 Install on the command line from your solution directory or use the Package Manager console in Visual Studio:
 
@@ -23,6 +23,8 @@ PM> Install-Package Slant.{LibraryName}
 
 where LibraryName is a appropriate Slant project name.
 
+But you are able to build libraries from the source code.
+
 ## Repositories
 
 Available repos with released packages:
@@ -33,7 +35,6 @@ Available repos with released packages:
 
 [Slant.Entity](https://github.com/slantdotnet/Slant.Entity)
 
-Fork the project, make your changes, and then send a Pull Request.
 
 ## Contributing
 
