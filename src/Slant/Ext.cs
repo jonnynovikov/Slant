@@ -33,5 +33,30 @@
         {
             return self.MatchUnsafe(identity, () => { throw exceptionSupplier(); });
         }
+
+        /// <summary>
+        /// Allows fluent chaining of Try monads
+        /// </summary>
+        public static Try<U> Then<T, U>(this Try<T> self, Func<T, U> getValue)
+        {
+            if (getValue == null) throw new ArgumentNullException("getValue");
+
+            var resT = self.Try();
+
+            return resT.IsFaulted
+                ? (() => new TryResult<U>(resT.Exception))
+                : new Try<U>(() =>
+                {
+                    try
+                    {
+                        U resU = getValue(resT.Value);
+                        return new TryResult<U>(resU);
+                    }
+                    catch (Exception e)
+                    {
+                        return new TryResult<U>(e);
+                    }
+                });
+        }
     }
 }

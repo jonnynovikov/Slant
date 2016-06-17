@@ -1,10 +1,9 @@
-﻿using System.Diagnostics;
-using System.Reflection;
+﻿using System.Reflection;
 using NUnit.Framework;
 
-namespace Monad.Tests
+namespace Slant.Tests
 {
-    public class MonadSuite : DebuggerShim
+    public class SpecRunner : DebuggerShim
     {
         static Assembly specsAssembly = typeof(DebuggerShim).Assembly;
 
