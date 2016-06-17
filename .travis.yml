@@ -1,0 +1,6 @@
+language: csharp
+solution: Slant.sln
+install:
+  - nuget restore Slant.sln
+script:
+  - xbuild /p:Configuration=Debug Slant.sln
