@@ -38,28 +38,8 @@
     <AssemblyOriginatorKeyFile>Slant.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LanguageExt.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\LanguageExt.Core.1.7.38\lib\net45\LanguageExt.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Rx-Core.2.2.5\lib\net45\System.Reactive.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Reactive.Interfaces, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Rx-Interfaces.2.2.5\lib\net45\System.Reactive.Interfaces.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Reactive.Linq, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Rx-Linq.2.2.5\lib\net45\System.Reactive.Linq.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Reactive.PlatformServices, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Rx-PlatformServices.2.2.5\lib\net45\System.Reactive.PlatformServices.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -69,19 +49,106 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ext.cs" />
+    <Compile Include="Internal\Rx.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="..\..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="src\Compose.cs" />
+    <Compile Include="src\DVV.cs" />
+    <Compile Include="src\Either.cs" />
+    <Compile Include="src\EitherState.cs" />
+    <Compile Include="src\EitherTrans.cs" />
+    <Compile Include="src\EitherUnsafe.cs" />
+    <Compile Include="src\EitherUnsafeTrans.cs" />
+    <Compile Include="src\ExceptionMatch.cs" />
+    <Compile Include="src\Exceptions.cs" />
+    <Compile Include="src\HKT.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HKT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\IAppendable.cs" />
+    <Compile Include="src\IDivisible.cs" />
+    <Compile Include="src\IEither.cs" />
+    <Compile Include="src\IMultiplicable.cs" />
+    <Compile Include="src\INumeric.cs" />
+    <Compile Include="src\IOptional.cs" />
+    <Compile Include="src\ISubtractable.cs" />
+    <Compile Include="src\List.cs" />
+    <Compile Include="src\Lst.cs" />
+    <Compile Include="src\Map.cs" />
+    <Compile Include="src\MapKV.cs" />
+    <Compile Include="src\MemoEnumerable.cs" />
+    <Compile Include="src\NewType.cs" />
+    <Compile Include="src\NullableExt.cs" />
+    <Compile Include="src\ObjectPool.cs" />
+    <Compile Include="src\Option.cs" />
+    <Compile Include="src\OptionUnsafe.cs" />
+    <Compile Include="src\Prelude.cs" />
+    <Compile Include="src\Prelude_Collections.cs" />
+    <Compile Include="src\Prelude_Curry.cs" />
+    <Compile Include="src\Prelude_Either.cs" />
+    <Compile Include="src\Prelude_EitherUnsafe.cs" />
+    <Compile Include="src\Prelude_Func.cs" />
+    <Compile Include="src\Prelude_Memoize.cs" />
+    <Compile Include="src\Prelude_Monad.cs" />
+    <Compile Include="src\Prelude_NewType.cs" />
+    <Compile Include="src\Prelude_Nullable.cs" />
+    <Compile Include="src\Prelude_Obsolete.cs" />
+    <Compile Include="src\Prelude_Option.cs" />
+    <Compile Include="src\Prelude_OptionUnsafe.cs" />
+    <Compile Include="src\Prelude_Parse.cs" />
+    <Compile Include="src\Prelude_PartialApplication.cs" />
+    <Compile Include="src\Prelude_Random.cs" />
+    <Compile Include="src\Prelude_Tasks.cs" />
+    <Compile Include="src\Prelude_Timer.cs" />
+    <Compile Include="src\Prelude_Try.cs" />
+    <Compile Include="src\Prelude_TryOption.cs" />
+    <Compile Include="src\Prelude_Tuple.cs" />
+    <Compile Include="src\Prelude_Tuple2.cs" />
+    <Compile Include="src\Prelude_Tuple3.cs" />
+    <Compile Include="src\Prelude_Use.cs" />
+    <Compile Include="src\Que.cs" />
+    <Compile Include="src\Query.cs" />
+    <Compile Include="src\Queue.cs" />
+    <Compile Include="src\Range.cs" />
+    <Compile Include="src\Reader.cs" />
+    <Compile Include="src\RWS.cs" />
+    <Compile Include="src\Set.cs" />
+    <Compile Include="src\SetT.cs" />
+    <Compile Include="src\Some.cs" />
+    <Compile Include="src\Stack.cs" />
+    <Compile Include="src\State.cs" />
+    <Compile Include="src\Stck.cs" />
+    <Compile Include="src\Task.cs" />
+    <Compile Include="src\Try.cs" />
+    <Compile Include="src\TryOption.cs" />
+    <Compile Include="src\TryOutExt.cs" />
+    <Compile Include="src\Tuple2.cs" />
+    <Compile Include="src\Tuple3.cs" />
+    <Compile Include="src\TupleExt.cs" />
+    <Compile Include="src\TypeConverters.cs" />
+    <Compile Include="src\TypeDesc.cs" />
+    <Compile Include="src\Unit.cs" />
+    <Compile Include="src\VectorClock.cs" />
+    <Compile Include="src\Versioned.cs" />
+    <Compile Include="src\Writer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="Slant.snk" />
+    <None Include="src\README.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="license.txt" />
+    <Content Include="src\HKT.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HKT.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
