@@ -10,6 +10,30 @@
     public static class Ext
     {
         /// <summary>
+        /// Returns self if it is nonempty, otherwise return the alternative.
+        /// </summary>
+        /// <param name="self"></param>
+        /// <param name="other"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static Option<T> OrElse<T>(this Option<T> self, Option<T> other)
+        {
+            return self.IsNone ? other : self;
+        }
+
+        /// <summary>
+        /// Returns self if it is nonempty, otherwise return the result of evaluating supplier.
+        /// </summary>
+        /// <param name="self"></param>
+        /// <param name="other"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static Option<T> OrElse<T>(this Option<T> self, Func<Option<T>> other)
+        {
+            return self.IsNone ? other() : self;
+        }
+
+        /// <summary>
         /// Returns the value if this is a Just, otherwise the other value is returned, if this is a Nothing
         /// </summary>
         /// <param name="self"></param>
