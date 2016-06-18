@@ -1,4 +1,14 @@
-﻿namespace Slant
+﻿using System;
+
+namespace LanguageExt
+{
+    public static partial class Prelude
+    {
+        public static string toString<T>(T x) => x.ToString();
+    }
+}
+
+namespace Slant
 {
     using System;
     using LanguageExt;
@@ -16,9 +26,14 @@
         /// <param name="other"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Option<T> OrElse<T>(this Option<T> self, Option<T> other)
+        //public static Option<T> OrElse<T>(this Option<T> self, Option<T> other) where T : struct
+        //{
+        //    return self.IsNone ? other : self;
+        //}
+
+        public static Option<T> OrElse<T, R>(this Option<T> self, Option<R> other) where R : T
         {
-            return self.IsNone ? other : self;
+            return self.IsNone ? other.Map(x => (T)x) : self;
         }
 
         /// <summary>
@@ -28,9 +43,9 @@
         /// <param name="other"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Option<T> OrElse<T>(this Option<T> self, Func<Option<T>> other)
+        public static Option<T> OrElse<T, R>(this Option<T> self, Func<Option<R>> other) where R : T
         {
-            return self.IsNone ? other() : self;
+            return self.IsNone ? other().Map(x => (T)x) : self;
         }
 
         /// <summary>

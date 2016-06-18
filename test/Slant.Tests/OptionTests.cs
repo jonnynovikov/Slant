@@ -9,7 +9,9 @@ namespace Slant.Tests
     [TestFixture]
     public class OptionTests
     {
-        public static Option<int> NothingInteger() => None;
+        private static Option<int> SomeInteger() => Optional(42);
+
+        private static Option<int> NothingInteger() => None;
 
         public static Action FailHere => () => false.Should().Be(true, "Shouldn't get here");
                 
@@ -233,22 +235,34 @@ namespace Slant.Tests
         [Test]
         public void ShouldReturnSelfOnOrElseIfValueIsPresent()
         {
-            Option<int> opt = Optional(42);
+            var opt = SomeInteger();
             opt.OrElse(Optional(0)).Should().Be(opt);
         }
 
         [Test]
         public void ShouldReturnSelfOnOrElseSupplierIfValueIsPresent()
         {
-            Option<int> opt = Optional(42);
+            var opt = SomeInteger();
             opt.OrElse(() => Optional(0)).Should().Be(opt);
         }
 
         [Test]
         public void ShouldReturnAlternativeOnOrElseIfValueIsNotDefined()
         {
-            Option<int> opt = Optional(42);
+            var opt = SomeInteger();
             NothingInteger().OrElse(opt).Should().Be(opt);
+        }
+
+        [Test]
+        public void ShouldMapSome()
+        {
+            Optional(1).Map(toString).Should().Be(Some("1"));
+        }
+
+        [Test]
+        public void ShouldBeAwareOfPropertyThatNotHoldsForAllOfSome()
+        {
+            Some(1).AsEnumerable().ForAll(i => i == 2).Should().BeFalse();
         }
     }
 }
