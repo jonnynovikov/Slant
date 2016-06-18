@@ -1,4 +1,14 @@
-﻿namespace Slant
+﻿using System;
+
+namespace LanguageExt
+{
+    public static partial class Prelude
+    {
+        public static string toString<T>(T x) => x.ToString();
+    }
+}
+
+namespace Slant
 {
     using System;
     using LanguageExt;
@@ -9,6 +19,35 @@
     /// </summary>
     public static class Ext
     {
+        /// <summary>
+        /// Returns self if it is nonempty, otherwise return the alternative.
+        /// </summary>
+        /// <param name="self"></param>
+        /// <param name="other"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        //public static Option<T> OrElse<T>(this Option<T> self, Option<T> other) where T : struct
+        //{
+        //    return self.IsNone ? other : self;
+        //}
+
+        public static Option<T> OrElse<T, R>(this Option<T> self, Option<R> other) where R : T
+        {
+            return self.IsNone ? other.Map(x => (T)x) : self;
+        }
+
+        /// <summary>
+        /// Returns self if it is nonempty, otherwise return the result of evaluating supplier.
+        /// </summary>
+        /// <param name="self"></param>
+        /// <param name="other"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static Option<T> OrElse<T, R>(this Option<T> self, Func<Option<R>> other) where R : T
+        {
+            return self.IsNone ? other().Map(x => (T)x) : self;
+        }
+
         /// <summary>
         /// Returns the value if this is a Just, otherwise the other value is returned, if this is a Nothing
         /// </summary>
