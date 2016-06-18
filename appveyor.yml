@@ -31,7 +31,7 @@ build:
 
 test:
   assemblies:
-  - Slant.Monad.Tests.dll
+  - Slant.Tests.dll
 
 artifacts:
  - path: src\Slant\bin\Release\Slant.dll
