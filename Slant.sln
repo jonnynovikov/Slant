@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slant.Specs", "test\Slant.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slant.Tests", "test\Slant.Tests\Slant.Tests.csproj", "{62576E5A-8E65-47E6-A862-D1D9458EC273}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slant.Assertions", "src\Slant.Assertions\Slant.Assertions.csproj", "{5FDC2DD6-2BAC-4DF3-BB2E-AC566A87E69F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{62576E5A-8E65-47E6-A862-D1D9458EC273}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62576E5A-8E65-47E6-A862-D1D9458EC273}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62576E5A-8E65-47E6-A862-D1D9458EC273}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FDC2DD6-2BAC-4DF3-BB2E-AC566A87E69F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FDC2DD6-2BAC-4DF3-BB2E-AC566A87E69F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FDC2DD6-2BAC-4DF3-BB2E-AC566A87E69F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FDC2DD6-2BAC-4DF3-BB2E-AC566A87E69F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,5 +45,6 @@ Global
 		{12CF544B-F65F-45D1-B183-5C7C2299CE28} = {B16104F5-F49C-425C-B3AE-BC8D5EC8A3C7}
 		{0F53E1B2-6B4C-460D-BEFB-EB1BCDB778D4} = {29B584F6-076B-4BAB-99B0-A7A28FB82B34}
 		{62576E5A-8E65-47E6-A862-D1D9458EC273} = {29B584F6-076B-4BAB-99B0-A7A28FB82B34}
+		{5FDC2DD6-2BAC-4DF3-BB2E-AC566A87E69F} = {B16104F5-F49C-425C-B3AE-BC8D5EC8A3C7}
 	EndGlobalSection
 EndGlobal

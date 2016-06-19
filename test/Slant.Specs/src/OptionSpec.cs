@@ -12,7 +12,7 @@ using LanguageExt;
 using NSpectator;
 using static LanguageExt.Prelude;
 
-namespace Slant.Monad.Specs
+namespace Slant.Specs
 {
     public class OptionSpec : Spec
     {
