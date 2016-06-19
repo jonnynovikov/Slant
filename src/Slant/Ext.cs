@@ -112,10 +112,5 @@ namespace Slant
                     }
                 });
         }
-
-        public static int GetMagic(this Func<Unit> func)
-        {
-            return 777;
-        }
     }
 }
