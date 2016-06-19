@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
 <metadata>
-        <id>Slant</id>
-        <version>1.0.0</version>
+        <id>Slant.Assertions</id>
+        <version>0.9.0</version>
         <title>Slant</title>
         <authors>Slant Development Team</authors>
         <owners>Jonny Novikov</owners>
         <licenseUrl>https://raw.githubusercontent.com/slantdotnet/Slant/master/license.txt</licenseUrl>
         <projectUrl>https://github.com/slantdotnet/Slant</projectUrl>
-        <iconUrl>https://raw.githubusercontent.com/slantdotnet/Slant/master/src/logo.png</iconUrl>
+        <iconUrl>https://raw.githubusercontent.com/slantdotnet/Slant.Linq/master/src/logo.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Library provides C# language extensions</description>
+        <description>Little more extension methods that allow you to more naturally specify the expected outcome of a xTDD test or specification.</description>
         <summary>C# for power developers.</summary>
         <releaseNotes>See github page for details</releaseNotes>
         <copyright>Copyright (c) Slant Development Team</copyright>
         <language>en-US</language>
-        <tags>LINQ fluent expressions</tags>
+        <tags>testing unit-testing NUnit MSUnit xUnit TDD BDD agile</tags>
     </metadata>
   <files>
     <file src="license.txt" />
-    <file src="bin\Release\Slant.dll" target="lib\Slant.dll" />
-    <file src="bin\Release\Slant.pdb" target="lib\Slant.pdb" />
-    <file src="bin\Release\Slant.XML" target="lib\Slant.XML" />
+    <file src="bin\Release\Slant.Assertions.dll" target="lib\Slant.dll" />
+    <file src="bin\Release\Slant.Assertions.pdb" target="lib\Slant.pdb" />
+    <file src="bin\Release\Slant.Assertions.XML" target="lib\Slant.XML" />
   </files>
 </package>
