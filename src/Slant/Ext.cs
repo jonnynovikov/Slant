@@ -1,10 +1,25 @@
 ﻿using System;
+using System.Diagnostics.Contracts;
 
 namespace LanguageExt
 {
     public static partial class Prelude
     {
         public static string toString<T>(T x) => x.ToString();
+
+        [Pure]
+        public static Action noop => () => { };
+
+        public static Func<T> ret<T>(T value) => () => value;
+
+        [Pure]
+        public static Func<Option<T>> retNone<T>() => () => Option<T>.None;
+
+        [Pure]
+        public static Func<Option<T>> retOptional<T>(T value) =>
+            isnull(value)
+                ? retNone<T>()
+                : () => Option<T>.Some(value);
     }
 }
 
@@ -96,6 +111,11 @@ namespace Slant
                         return new TryResult<U>(e);
                     }
                 });
+        }
+
+        public static int GetMagic(this Func<Unit> func)
+        {
+            return 777;
         }
     }
 }

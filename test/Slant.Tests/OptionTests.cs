@@ -11,10 +11,8 @@ namespace Slant.Tests
     {
         private static Option<int> SomeInteger() => Optional(42);
 
-        private static Option<int> NothingInteger() => None;
-
         public static Action FailHere => () => false.Should().Be(true, "Shouldn't get here");
-                
+
         [Test]
         public void SomeGeneratorTestsObject()
         {
@@ -66,7 +64,7 @@ namespace Slant.Tests
                             None: () => Assert.True(true));
 
             int c = match(optional, Some: i => i + 1,
-                                    None: () => 0);
+                                    None: ret(0));
 
             Assert.True(c == 0);
         }
@@ -118,7 +116,7 @@ namespace Slant.Tests
         [Test]
         public void NullIsNoneTest()
         {
-            Assert.True(GetStringNone2().IsNone);
+            GetStringNone2().IsNone.Should().BeTrue();
         }
 
         [Test]
@@ -130,7 +128,7 @@ namespace Slant.Tests
 
             int res2 = GetValue(false)
                         .Some(x => x + 10)
-                        .None(() => 0);
+                        .None(ret(0));
 
             Assert.True(res1 == 1010);
             Assert.True(res2 == 0);
@@ -164,10 +162,18 @@ namespace Slant.Tests
         public void NullableTest()
         {
             var res = GetNullable(true)
-                        .Some(v => v)
-                        .None(() => 0);
+                        .Some(identity)
+                        .None(ret(0));
 
-            Assert.True(res == 1000);
+            res.Should().Be(1000);
+        }
+
+        [Test]
+        public void NullableOrElseTest()
+        {
+            var res = GetNullable(true).GetOrElse(ret(0));
+            res.Should().Be(1000);
+            Some(res).Should().Be(res);
         }
 
         [Test]
@@ -178,10 +184,22 @@ namespace Slant.Tests
                     () =>
                     {
                         var res = GetNullable(false)
-                                    .Some(v => v)
-                                    .None(() => 0);
+                                    .Some(identity)
+                                    .None(ret(0));
                     }
                 );
+        }
+
+        [Test]
+        public void NullableDenySomeNullOrElseTest()
+        {
+            fun(() =>
+           {
+               var res = GetNullable(false)
+                           .Some(identity)
+                           .None(ret(0));
+           }).Should();
+
         }
 
         private Option<string> GetStringNone()
@@ -222,7 +240,7 @@ namespace Slant.Tests
             Action<int> actionint = v => v = v * 2;
             Option<int> optional1 = Some(123);
             optional1.Some(actionint) // Compiler tries to call:  public static Option<T> Some(T value)
-                     .None(() => { });
+                     .None(noop);
         }
 
         [Test]
@@ -244,13 +262,15 @@ namespace Slant.Tests
         {
             var opt = SomeInteger();
             opt.OrElse(() => Optional(0)).Should().Be(opt);
+            opt.OrElse(ret(Optional(0))).Should().Be(opt);
+            opt.OrElse(retOptional(0)).Should().Be(opt);
         }
 
         [Test]
         public void ShouldReturnAlternativeOnOrElseIfValueIsNotDefined()
         {
             var opt = SomeInteger();
-            NothingInteger().OrElse(opt).Should().Be(opt);
+            Option<int>.None.OrElse(opt).Should().Be(opt);
         }
 
         [Test]
