@@ -41,6 +41,10 @@
       <HintPath>..\..\packages\FluentAssertions.4.9.0\lib\net45\FluentAssertions.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Slant, Version=0.9.0.0, Culture=neutral, PublicKeyToken=d632f95b00548959, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Slant.0.9.0\lib\Slant.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,6 +55,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ShouldExtensions.cs" />
+    <Compile Include="Assertions\ActionAssertions.cs" />
+    <Compile Include="Assertions\OptionAssertions.cs" />
+    <Compile Include="Assertions\UnitAssertions.cs" />
     <Compile Include="ExpectationExtensions.cs" />
     <Compile Include="Expectations\BooleanExpectations.cs" />
     <Compile Include="Expectations\DateTimeExpectations.cs" />
@@ -64,9 +72,7 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assertions\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

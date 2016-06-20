@@ -36,8 +36,7 @@ namespace Slant.Tests
 
             int c = match(optional, Some: i => i + 1,
                                     None: () => 0);
-
-            Assert.True(c == 124);
+            c.Should().Be(124);
         }
 
         [Test]
@@ -103,13 +102,7 @@ namespace Slant.Tests
         [Test]
         public void NullIsNotSomeTest()
         {
-            Assert.Throws(
-                typeof(ValueIsNullException),
-                () =>
-                {
-                    GetStringNone();
-                }
-            );
+            act(GetStringNone).ShouldThrow<ValueIsNullException>();
         }
 
         [Test]
@@ -136,25 +129,21 @@ namespace Slant.Tests
         [Test]
         public void NullInSomeOrNoneTest()
         {
-            Assert.Throws(
-                typeof(ResultIsNullException),
-                () =>
+            act(() =>
                 {
                     GetValue(true)
                        .Some(x => (string)null)
                        .None((string)null);
                 }
-            );
+            ).ShouldThrow<ResultIsNullException>();
 
-            Assert.Throws(
-                typeof(ResultIsNullException),
-                () =>
+            act(() =>
                 {
                     GetValue(false)
                        .Some(x => (string)null)
                        .None((string)null);
                 }
-            );
+            ).ShouldThrow<ResultIsNullException>();
         }
 
         [Test]
@@ -178,29 +167,14 @@ namespace Slant.Tests
         [Test]
         public void NullableDenySomeNullTest()
         {
-            Assert.Throws(
-                    typeof(ValueIsNullException),
-                    () =>
-                    {
-                        var res = GetNullable(false)
-                                    .Some(identity)
-                                    .None(ret(0));
-                    }
-                );
+            act(() =>
+            {
+                var res = GetNullable(false)
+                            .Some(identity)
+                            .None(ret(0));
+            }).ShouldThrow<ValueIsNullException>();
         }
-
-        [Test]
-        public void NullableDenySomeNullOrElseTest()
-        {
-           Action act = () =>
-           {
-               var res = GetNullable(false)
-                           .Some(identity)
-                           .None(ret(0));
-           };
-           act.ShouldThrow<ValueIsNullException>();
-        }
-
+        
         private Option<string> GetStringNone()
         {
             // This should fail
