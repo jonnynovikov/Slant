@@ -32,6 +32,12 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\Slant.Assertions.XML</DocumentationFile>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Slant.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="FluentAssertions, Version=4.9.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\FluentAssertions.4.9.0\lib\net45\FluentAssertions.dll</HintPath>
@@ -39,6 +45,10 @@
     </Reference>
     <Reference Include="FluentAssertions.Core, Version=4.9.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\FluentAssertions.4.9.0\lib\net45\FluentAssertions.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Slant, Version=0.9.0.0, Culture=neutral, PublicKeyToken=d632f95b00548959, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Slant.0.9.0\lib\Slant.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -51,6 +61,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ShouldExtensions.cs" />
+    <Compile Include="Assertions\ActionAssertions.cs" />
+    <Compile Include="Assertions\OptionAssertions.cs" />
+    <Compile Include="Assertions\UnitAssertions.cs" />
     <Compile Include="ExpectationExtensions.cs" />
     <Compile Include="Expectations\BooleanExpectations.cs" />
     <Compile Include="Expectations\DateTimeExpectations.cs" />
@@ -64,11 +78,10 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assertions\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Slant.snk" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="license.txt" />
