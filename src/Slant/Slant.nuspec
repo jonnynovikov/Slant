@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
 <metadata>
         <id>Slant</id>
-        <version>1.0.0</version>
+        <version>0.9.0</version>
         <title>Slant</title>
         <authors>Slant Development Team</authors>
         <owners>Jonny Novikov</owners>
@@ -11,11 +11,11 @@
         <iconUrl>https://raw.githubusercontent.com/slantdotnet/Slant/master/src/logo.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Library provides C# language extensions</description>
-        <summary>C# for power developers.</summary>
+        <summary>C# with a functional 'Base class library' for power developers. Includes LanguageExt.Core source without Rx package dependencies.</summary>
         <releaseNotes>See github page for details</releaseNotes>
         <copyright>Copyright (c) Slant Development Team</copyright>
         <language>en-US</language>
-        <tags>LINQ fluent expressions</tags>
+        <tags>C# Functional Language Extension Monad Option Immutable Lambda Pattern Matching Tuple Actor</tags>
     </metadata>
   <files>
     <file src="license.txt" />

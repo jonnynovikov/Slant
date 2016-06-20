@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Ext.cs" />
     <Compile Include="Internal\Rx.cs" />
+    <Compile Include="Prelude_Ext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="..\..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>

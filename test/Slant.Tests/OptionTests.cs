@@ -23,8 +23,7 @@ namespace Slant.Tests
 
             int c = optional.Match(Some: i => i + 1,
                                    None: () => 0);
-
-            Assert.True(c == 124);
+            c.Should().Be(124);
         }
 
         [Test]
@@ -32,7 +31,7 @@ namespace Slant.Tests
         {
             var optional = Some(123);
 
-            match(optional, Some: i => Assert.True(i == 123),
+            match(optional, Some: i => i.Should().Be(123),
                             None: FailHere);
 
             int c = match(optional, Some: i => i + 1,
@@ -47,10 +46,10 @@ namespace Slant.Tests
             Option<int> optional = None;
 
             optional.Match(Some: i => FailHere(),
-                           None: () => Assert.True(true));
+                           None: noop);
 
             int c = optional.Match(Some: i => i + 1,
-                                   None: () => 0);
+                                   None: ret(0));
 
             Assert.True(c == 0);
         }
@@ -61,7 +60,7 @@ namespace Slant.Tests
             Option<int> optional = None;
 
             match(optional, Some: i => FailHere(),
-                            None: () => Assert.True(true));
+                            None: noop);
 
             int c = match(optional, Some: i => i + 1,
                                     None: ret(0));
@@ -80,7 +79,7 @@ namespace Slant.Tests
                   from y in four
                   from z in six
                   select x + y + z,
-                   Some: v => Assert.True(v == 12),
+                   Some: v => v.Should().Be(12),
                    None: failwith("Shouldn't get here"));
         }
 
@@ -98,7 +97,7 @@ namespace Slant.Tests
                   from z in six
                   select x + y + z,
                    Some: v => failwith<int>("Shouldn't get here"),
-                   None: () => Assert.True(true));
+                   None: noop);
         }
 
         [Test]
@@ -130,8 +129,8 @@ namespace Slant.Tests
                         .Some(x => x + 10)
                         .None(ret(0));
 
-            Assert.True(res1 == 1010);
-            Assert.True(res2 == 0);
+            res1.Should().Be(1010);
+            res2.Should().Be(0);
         }
 
         [Test]
@@ -193,13 +192,13 @@ namespace Slant.Tests
         [Test]
         public void NullableDenySomeNullOrElseTest()
         {
-            fun(() =>
+           Action act = () =>
            {
                var res = GetNullable(false)
                            .Some(identity)
                            .None(ret(0));
-           }).Should();
-
+           };
+           act.ShouldThrow<ValueIsNullException>();
         }
 
         private Option<string> GetStringNone()
