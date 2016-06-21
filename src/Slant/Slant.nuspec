@@ -6,9 +6,9 @@
         <title>Slant</title>
         <authors>Slant Development Team</authors>
         <owners>Jonny Novikov</owners>
-        <licenseUrl>https://raw.githubusercontent.com/slantdotnet/Slant/master/license.txt</licenseUrl>
-        <projectUrl>https://github.com/slantdotnet/Slant</projectUrl>
-        <iconUrl>https://raw.githubusercontent.com/slantdotnet/Slant/master/src/logo.png</iconUrl>
+        <licenseUrl>https://raw.githubusercontent.com/slantstack/Slant/master/license.txt</licenseUrl>
+        <projectUrl>https://github.com/slantstack/Slant</projectUrl>
+        <iconUrl>https://raw.githubusercontent.com/slantstack/Slant/master/src/logo.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Library provides C# language extensions</description>
         <summary>C# with a functional 'Base class library' for power developers. Includes LanguageExt.Core source without Rx package dependencies.</summary>

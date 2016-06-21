@@ -6,13 +6,13 @@
         <title>Slant Fluent Assertions</title>
         <authors>Slant Development Team</authors>
         <owners>Jonny Novikov</owners>
-        <licenseUrl>https://raw.githubusercontent.com/slantdotnet/Slant/master/license.txt</licenseUrl>
-        <projectUrl>https://github.com/slantdotnet/Slant</projectUrl>
-        <iconUrl>https://raw.githubusercontent.com/slantdotnet/Slant/master/src/logo.png</iconUrl>
+        <licenseUrl>https://raw.githubusercontent.com/slantstack/Slant/master/license.txt</licenseUrl>
+        <projectUrl>https://github.com/slantstack/Slant</projectUrl>
+        <iconUrl>https://raw.githubusercontent.com/slantstack/Slant/master/src/logo.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>A bit more extension methods based on FluentAssertions that allow you to more naturally specify the expected outcome of a xTDD test or specification.</description>
         <summary>FluentAssertions extensions and expectations.</summary>
-        <releaseNotes>See https://github.com/slantdotnet/Slant for details</releaseNotes>
+        <releaseNotes>See https://github.com/slantstack/Slant for details</releaseNotes>
         <copyright>Copyright (c) Slant Development Team</copyright>
         <language>en-US</language>
         <tags>assert testing unit-testing NUnit MSUnit xUnit TDD BDD agile</tags>
