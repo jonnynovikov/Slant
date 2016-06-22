@@ -1,8 +1,8 @@
 version: build{build}
 
 environment:
-  SlantVersion: 1.0.0
-  SlantPackageVersion: "1.0.0-ci$(APPVEYOR_BUILD_NUMBER)"
+  SlantVersion: 0.9.1
+  SlantPackageVersion: "0.9.1-ci$(APPVEYOR_BUILD_NUMBER)"
   
 cache:
   - packages -> **\packages.config

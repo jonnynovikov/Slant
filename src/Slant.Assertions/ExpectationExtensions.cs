@@ -13,7 +13,7 @@ namespace Slant.Expectations
     public static class ExpectationExtensions
     {
         /// <summary>
-        /// Returns an <see cref="T:NSpectator.ObjectExpectations"/> object that can be used to assert the
+        /// Returns an <see cref="T:Slant.Expectations.ObjectExpectations"/> object that can be used to assert the
         /// expectations of the current <see cref="T:System.Object"/>.
         /// 
         /// </summary>
@@ -48,7 +48,7 @@ namespace Slant.Expectations
         }
 
         /// <summary>
-        /// Returns an <see cref="T:NSpectator.GenericCollectionExpectations`1"/> object that can be used to assert the
+        /// Returns an <see cref="T:Slant.Expectations.GenericCollectionExpectations`1"/> object that can be used to assert the
         /// current <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
         /// 
         /// </summary>
