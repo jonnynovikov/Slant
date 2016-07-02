@@ -1,7 +1,7 @@
 Slant projects
 ==============
 
-[![Join the chat at https://gitter.im/slantdotnet/Slant](https://badges.gitter.im/slantdotnet/Slant.svg)](https://gitter.im/slantdotnet/Slant?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/slantstack/Slant](https://badges.gitter.im/slantstack/Slant.svg)](https://gitter.im/slantstack/Slant?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Overview
 
@@ -29,11 +29,11 @@ But you are able to build libraries from the source code.
 
 Available repos with released packages:
 
-[Slant.Configuration](https://github.com/slantdotnet/Slant.Configuration)
+[Slant.Configuration](https://github.com/slantstack/Slant.Configuration)
 
-[Slant.Linq](https://github.com/slantdotnet/Slant.Linq)
+[Slant.Linq](https://github.com/slantstack/Slant.Linq)
 
-[Slant.Entity](https://github.com/slantdotnet/Slant.Entity)
+[Slant.Entity](https://github.com/slantstack/Slant.Entity)
 
 
 ## Contributing
@@ -81,7 +81,7 @@ git checkout -b <some-branch-name>
 
 Jetbrains Community Support for providing great tools for our team
 
-[![Jetbrains Resharper](http://nspectator.org/assets/icon_ReSharper.png)](https://www.jetbrains.com/resharper/)
+[![Jetbrains Resharper](https://github.com/nspectator/nspectator/raw/master/tools/icon_ReSharper.png)](https://www.jetbrains.com/resharper/)
 
 
 
