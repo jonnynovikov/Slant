@@ -135,7 +135,7 @@ namespace LanguageExt
         public static Unit Iter<T>(this Task<T> self, Action<T> f)
         {
             if (self.IsFaulted || self.IsCanceled) return unit;
-            self.ContinueWith(t => f(t.Result)).Start();
+            self.ContinueWith(t => f(t.Result));
             return unit;
         }
 
@@ -192,11 +192,12 @@ namespace LanguageExt
             T t = await source;
             return project(t,inner.Where(u => EqualityComparer<K>.Default.Equals(outerKeyMap(t), innerKeyMap(u))));
         }
-
+#if !COREFX
         public static async Task<T> Cast<T>(this Task source)
         {
             await source;
             return (T)((dynamic)source).Result;
         }
+#endif
     }
 }

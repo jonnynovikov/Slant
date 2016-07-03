@@ -7,14 +7,6 @@ namespace LanguageExt
     public static partial class Prelude
     {
         /// <summary>
-        /// Call ToString of an object
-        /// </summary>
-        /// <param name="x"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static string toString<T>(T x) => x.ToString();
-
-        /// <summary>
         /// Action which does nothing
         /// <remarks>noop = no operation</remarks>
         /// </summary>

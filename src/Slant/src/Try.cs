@@ -49,6 +49,9 @@ namespace LanguageExt
             IsFaulted
                 ? Exception.ToString()
                 : Value.ToString();
+
+        public readonly static TryResult<T> Bottom = 
+            new TryResult<T>(new BottomException());
     }
 
     public static class TryResult
@@ -501,6 +504,7 @@ public static class __TryExt
     {
         try
         {
+            if (self == null) return TryResult<T>.Bottom;
             return self();
         }
         catch (Exception e)
@@ -515,6 +519,7 @@ public static class __TryExt
     {
         try
         {
+            if (self == null) throw new BottomException();
             var res = self();
             if (res.IsFaulted)
             {
@@ -536,17 +541,8 @@ public static class __TryExt
         return new Try<U>(() =>
         {
             TryResult<T> resT;
-            try
-            {
-                resT = self();
-                if (resT.IsFaulted)
-                    return new TryResult<U>(resT.Exception);
-            }
-            catch (Exception e)
-            {
-                TryConfig.ErrorLogger(e);
-                return new TryResult<U>(e);
-            }
+            resT = self.Try();
+            if (resT.IsFaulted) return new TryResult<U>(resT.Exception);
 
             U resU;
             try
@@ -923,4 +919,22 @@ public static class __TryExt
         if (resT.IsFaulted) return new V[0];
         return bind(resT.Value).Map(resU => project(resT.Value, resU));
     }
+
+    public static Try<V> Join<L, T, U, K, V>(
+        this Try<T> self,
+        Try<U> inner,
+        Func<T, K> outerKeyMap,
+        Func<U, K> innerKeyMap,
+        Func<T, U, V> project) => () =>
+    {
+        var selfRes = self.Try();
+        if (selfRes.IsFaulted) return new TryResult<V>(selfRes.Exception);
+
+        var innerRes = inner.Try();
+        if (innerRes.IsFaulted) return new TryResult<V>(innerRes.Exception);
+
+        return EqualityComparer<K>.Default.Equals(outerKeyMap(selfRes.Value), innerKeyMap(innerRes.Value))
+            ? new TryResult<V>(project(selfRes.Value, innerRes.Value))
+            : TryResult<V>.Bottom;
+    };
 }
