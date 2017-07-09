@@ -5,8 +5,6 @@ using static LanguageExt.Prelude;
 using static LanguageExt.TypeClass;
 using System.Diagnostics.Contracts;
 using System.Threading.Tasks;
-using System.Reactive.Linq;
-using System.Reactive.Threading.Tasks;
 using LanguageExt.TypeClasses;
 using System.Collections.Generic;
 using LanguageExt.ClassInstances;
@@ -577,115 +575,7 @@ public static class TryOptionAsyncExtensions
 
         return unit;
     }
-
-    /// <summary>
-    /// Turns the computation into an observable stream
-    /// </summary>
-    /// <typeparam name="A">Bound type</typeparam>
-    /// <typeparam name="B">Returned observable bound type</typeparam>
-    /// <param name="self">This</param>
-    /// <param name="Some">Function to call when the operation succeeds</param>
-    /// <param name="None">Function to call when the operation succeeds but returns no value</param>
-    /// <param name="Fail">Function to call when the operation fails</param>
-    /// <returns>An observable that represents the result of Succ or Fail</returns>
-    public static IObservable<B> MatchObservable<A, B>(this TryOptionAsync<A> self, Func<A, IObservable<B>> Some, Func<B> None, Func<Exception, B> Fail) =>
-        self.Try().ToObservable().SelectMany(
-            a => a.IsFaulted
-                ? Observable.Return(Fail(a.Exception))
-                : a.Value.IsSome
-                    ? Some(a.Value.Value)
-                    : Observable.Return(None()));
-
-    /// <summary>
-    /// Turns the computation into an observable stream
-    /// </summary>
-    /// <typeparam name="A">Bound type</typeparam>
-    /// <typeparam name="B">Returned observable bound type</typeparam>
-    /// <param name="self">This</param>
-    /// <param name="Some">Function to call when the operation succeeds</param>
-    /// <param name="None">Function to call when the operation succeeds but returns no value</param>
-    /// <param name="Fail">Function to call when the operation fails</param>
-    /// <returns>An observable that represents the result of Succ or Fail</returns>
-    public static IObservable<B> MatchObservable<A, B>(this TryOptionAsync<A> self, Func<A, IObservable<B>> Some, Func<IObservable<B>> None, Func<Exception, B> Fail) =>
-        self.Try().ToObservable().SelectMany(
-            a => a.IsFaulted
-                ? Observable.Return(Fail(a.Exception))
-                : a.Value.IsSome
-                    ? Some(a.Value.Value)
-                    : None());
-
-    /// <summary>
-    /// Turns the computation into an observable stream
-    /// </summary>
-    /// <typeparam name="A">Bound type</typeparam>
-    /// <typeparam name="R">Returned observable bound type</typeparam>
-    /// <param name="self">This</param>
-    /// <param name="Some">Function to call when the operation succeeds</param>
-    /// <param name="None">Function to call when the operation succeeds but returns no value</param>
-    /// <param name="Fail">Function to call when the operation fails</param>
-    /// <returns>An observable that represents the result of Succ or Fail</returns>
-    public static IObservable<R> MatchObservable<A, R>(this TryOptionAsync<A> self, Func<A, IObservable<R>> Some, Func<R> None, Func<Exception, IObservable<R>> Fail) =>
-        self.Try().ToObservable().SelectMany(
-            a => a.IsFaulted
-                ? Fail(a.Exception)
-                : a.Value.IsSome
-                    ? Some(a.Value.Value)
-                    : Observable.Return(None()));
-
-    /// <summary>
-    /// Turns the computation into an observable stream
-    /// </summary>
-    /// <typeparam name="A">Bound type</typeparam>
-    /// <typeparam name="R">Returned observable bound type</typeparam>
-    /// <param name="self">This</param>
-    /// <param name="Some">Function to call when the operation succeeds</param>
-    /// <param name="None">Function to call when the operation succeeds but returns no value</param>
-    /// <param name="Fail">Function to call when the operation fails</param>
-    /// <returns>An observable that represents the result of Succ or Fail</returns>
-    public static IObservable<R> MatchObservable<A, R>(this TryOptionAsync<A> self, Func<A, IObservable<R>> Some, Func<IObservable<R>> None, Func<Exception, IObservable<R>> Fail) =>
-        self.Try().ToObservable().SelectMany(
-            a => a.IsFaulted
-                ? Fail(a.Exception)
-                : a.Value.IsSome
-                    ? Some(a.Value.Value)
-                    : None());
-
-    /// <summary>
-    /// Turns the computation into an observable stream
-    /// </summary>
-    /// <typeparam name="A">Bound type</typeparam>
-    /// <typeparam name="R">Returned observable bound type</typeparam>
-    /// <param name="self">This</param>
-    /// <param name="Some">Function to call when the operation succeeds</param>
-    /// <param name="None">Function to call when the operation succeeds but returns no value</param>
-    /// <param name="Fail">Function to call when the operation fails</param>
-    /// <returns>An observable that represents the result of Succ or Fail</returns>
-    public static IObservable<R> MatchObservable<A, R>(this TryOptionAsync<A> self, Func<A, R> Some, Func<R> None, Func<Exception, IObservable<R>> Fail) =>
-        self.Try().ToObservable().SelectMany(
-            a => a.IsFaulted
-                ? Fail(a.Exception)
-                : a.Value.IsSome
-                    ? Observable.Return(Some(a.Value.Value))
-                    : Observable.Return(None()));
-
-    /// <summary>
-    /// Turns the computation into an observable stream
-    /// </summary>
-    /// <typeparam name="A">Bound type</typeparam>
-    /// <typeparam name="R">Returned observable bound type</typeparam>
-    /// <param name="self">This</param>
-    /// <param name="Some">Function to call when the operation succeeds</param>
-    /// <param name="None">Function to call when the operation succeeds but returns no value</param>
-    /// <param name="Fail">Function to call when the operation fails</param>
-    /// <returns>An observable that represents the result of Succ or Fail</returns>
-    public static IObservable<R> MatchObservable<A, R>(this TryOptionAsync<A> self, Func<A, R> Some, Func<IObservable<R>> None, Func<Exception, IObservable<R>> Fail) =>
-        self.Try().ToObservable().SelectMany(
-            a => a.IsFaulted
-                ? Fail(a.Exception)
-                : a.Value.IsSome
-                    ? Observable.Return(Some(a.Value.Value))
-                    : None());
-
+    
     [Pure]
     public static Task<Validation<Exception, Option<A>>> ToValidation<A>(this TryOptionAsync<A> self) =>
         self.Match(

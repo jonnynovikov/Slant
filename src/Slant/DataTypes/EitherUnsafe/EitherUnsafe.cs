@@ -234,20 +234,6 @@ namespace LanguageExt
             matchAsync<MEitherUnsafe<L, R>, EitherUnsafe<L, R>, L, R, R2>(this, Left, Right);
 
         /// <summary>
-        /// Match the two states of the EitherUnsafe and return an observable stream of non-null R2s.
-        /// </summary>
-        [Pure]
-        public IObservable<R2> MatchObservableUnsafe<R2>(Func<R, IObservable<R2>> Right, Func<L, R2> Left) =>
-            matchObservable<MEitherUnsafe<L, R>, EitherUnsafe<L, R>, L, R, R2>(this, Left, Right);
-
-        /// <summary>
-        /// Match the two states of the EitherUnsafe and return an observable stream of non-null R2s.
-        /// </summary>
-        [Pure]
-        public IObservable<R2> MatchObservableUnsafe<R2>(Func<R, IObservable<R2>> Right, Func<L, IObservable<R2>> Left) =>
-            matchObservable<MEitherUnsafe<L, R>, EitherUnsafe<L, R>, L, R, R2>(this, Left, Right);
-
-        /// <summary>
         /// Executes the Left function if the EitherUnsafe is in a Left state.
         /// Returns the Right value if the EitherUnsafe is in a Right state.
         /// </summary>

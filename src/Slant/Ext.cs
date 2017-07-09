@@ -16,11 +16,6 @@
         /// <param name="other"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        //public static Option<T> OrElse<T>(this Option<T> self, Option<T> other) where T : struct
-        //{
-        //    return self.IsNone ? other : self;
-        //}
-
         public static Option<T> OrElse<T, R>(this Option<T> self, Option<R> other) where R : T
         {
             return self.IsNone ? other.Map(x => (T)x) : self;
@@ -61,31 +56,6 @@
             where TException : Exception
         {
             return self.MatchUnsafe(identity, () => { throw exceptionSupplier(); });
-        }
-
-        /// <summary>
-        /// Allows fluent chaining of Try monads
-        /// </summary>
-        public static Try<U> Then<T, U>(this Try<T> self, Func<T, U> getValue)
-        {
-            if (getValue == null) throw new ArgumentNullException("getValue");
-
-            var resT = self.Try();
-
-            return resT.IsFaulted
-                ? (() => new TryResult<U>(resT.Exception))
-                : new Try<U>(() =>
-                {
-                    try
-                    {
-                        U resU = getValue(resT.Value);
-                        return new TryResult<U>(resU);
-                    }
-                    catch (Exception e)
-                    {
-                        return new TryResult<U>(e);
-                    }
-                });
         }
     }
 }

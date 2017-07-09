@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\Slant.XML</DocumentationFile>
     <LangVersion>7</LangVersion>
+    <NoWarn>1701,1702,1705,IDE1006,1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -441,7 +442,6 @@
     <Compile Include="Prelude\Prelude_Flip.cs" />
     <Compile Include="Prelude\Prelude_Func.cs" />
     <Compile Include="Prelude\Prelude_Memoize.cs" />
-    <Compile Include="Prelude\Prelude_Obsolete.cs" />
     <Compile Include="Prelude\Prelude_Parse.cs" />
     <Compile Include="Prelude\Prelude_PartialApplication.cs" />
     <Compile Include="Prelude\Prelude_Random.cs" />
