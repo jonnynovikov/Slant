@@ -6,7 +6,7 @@
         <title>Slant</title>
         <authors>Slant Development Team</authors>
         <owners>Jonny Novikov</owners>
-        <licenseUrl>https://raw.githubusercontent.com/slantstack/Slant/master/license.txt</licenseUrl>
+        <licenseUrl>https://raw.githubusercontent.com/slantstack/Slant/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/slantstack/Slant</projectUrl>
         <iconUrl>https://raw.githubusercontent.com/slantstack/Slant/master/src/logo.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
