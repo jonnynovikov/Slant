@@ -450,7 +450,6 @@
     <Compile Include="Prelude\Prelude_UnitsOfMeasure.cs" />
     <Compile Include="Prelude\Prelude_Use.cs" />
     <Compile Include="Prelude\Prelude_Validate.cs" />
-    <Compile Include="Prelude_Ext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="..\..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>

@@ -7,7 +7,7 @@ using LanguageExt.ClassInstances.Const;
 using System;
 using System.Reflection;
 
-namespace LanguageExtTests
+namespace LanguageExt.Tests
 {
     public class Metres : NumType<Metres, TInt, int>
     {

@@ -6,7 +6,7 @@ using LanguageExt.ClassInstances;
 using LanguageExt;
 using System.Net.Http;
 
-namespace LanguageExtTests
+namespace LanguageExt.Tests
 {
     public class TaskTests
     {

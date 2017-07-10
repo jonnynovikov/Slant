@@ -6,7 +6,7 @@ using LanguageExt;
 using static LanguageExt.Prelude;
 using LanguageExt.ClassInstances;
 
-namespace LanguageExtTests
+namespace LanguageExt.Tests
 {
     public class Subtractable
     {

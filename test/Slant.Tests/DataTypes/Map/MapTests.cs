@@ -6,7 +6,7 @@ using Xunit;
 using System;
 using System.Linq;
 
-namespace LanguageExtTests
+namespace LanguageExt.Tests
 {
     
     public class MapTests

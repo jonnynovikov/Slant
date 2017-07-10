@@ -8,7 +8,7 @@ using LanguageExt;
 using static LanguageExt.Prelude;
 using static LanguageExt.CondExt;
 
-namespace LanguageExtTests
+namespace LanguageExt.Tests
 {
     public class CondTest
     {

@@ -7,7 +7,7 @@
     <ProjectGuid>{62576E5A-8E65-47E6-A862-D1D9458EC273}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Slant.Tests</RootNamespace>
+    <RootNamespace>LanguageExt.Tests</RootNamespace>
     <AssemblyName>Slant.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -162,7 +162,6 @@
     <Folder Include="DataTypes\Range\" />
     <Folder Include="DataTypes\Reader\" />
     <Folder Include="DataTypes\Result\" />
-    <Folder Include="DataTypes\Unit\" />
     <Folder Include="DataTypes\ValueTuple\" />
     <Folder Include="DataTypes\VectorClock\" />
   </ItemGroup>
