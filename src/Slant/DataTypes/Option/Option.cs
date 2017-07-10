@@ -63,7 +63,6 @@ namespace LanguageExt
         /// Ctor that facilitates serialisation
         /// </summary>
         /// <param name="option">None or Some A.</param>
-        [Pure]
         public Option(IEnumerable<A> option)
         {
             var first = option.Take(1).ToArray();
@@ -72,7 +71,6 @@ namespace LanguageExt
                 : OptionData.Optional(first[0]);
         }
 
-        [Pure]
         public Option(SerializationInfo info, StreamingContext context)
         {
             var isSome = (bool)info.GetValue("IsSome", typeof(bool));
@@ -128,6 +126,7 @@ namespace LanguageExt
         public static implicit operator Option<A>(A a) =>
             Optional(a);
 
+        /// <summary>
         /// Implicit conversion operator from None to Option<A>
         /// </summary>
         /// <param name="a">None value</param>

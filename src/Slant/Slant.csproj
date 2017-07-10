@@ -31,7 +31,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\Slant.XML</DocumentationFile>
     <LangVersion>7</LangVersion>
-    <NoWarn>1701,1702,1705,IDE1006,1591</NoWarn>
+    <NoWarn>1701,1702,1705,IDE1006,1591,1570</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -417,7 +417,6 @@
     <Compile Include="DataTypes\Writer\Writer.Prelude.cs" />
     <Compile Include="DataTypes\Writer\WriterResult.cs" />
     <Compile Include="Exceptions.cs" />
-    <Compile Include="Ext.cs" />
     <Compile Include="Extensions\ActionObservable.cs" />
     <Compile Include="Extensions\ObjectExt.cs" />
     <Compile Include="Extensions\ObservableExt.cs" />
@@ -517,6 +516,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="README.md" />
     <None Include="Slant.snk" />
   </ItemGroup>
   <ItemGroup>

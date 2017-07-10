@@ -3,6 +3,7 @@ using LanguageExt;
 using static LanguageExt.Prelude;
 using System.Reactive.Linq;
 using System.Diagnostics.Contracts;
+using LanguageExt.ClassInstances;
 
 /// <summary>
 /// Extension methods for Either
