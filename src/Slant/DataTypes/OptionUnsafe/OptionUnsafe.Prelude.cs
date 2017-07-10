@@ -122,9 +122,9 @@ namespace LanguageExt
             option.IfNoneUnsafe(noneValue);
 
         /// <summary>
-        /// Match the two states of the OptionUnsafe and return a B, which can be null.
+        /// Match the two states of the OptionUnsafe and return a R, which can be null.
         /// </summary>
-        /// <typeparam name="B">Return type</typeparam>
+        /// <typeparam name="R">Return type</typeparam>
         /// <param name="Some">Some match operation. May return null.</param>
         /// <param name="None">None match operation. May return null.</param>
         /// <returns>B, or null</returns>

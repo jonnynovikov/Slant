@@ -68,14 +68,81 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Appendable.cs" />
+    <Compile Include="ApplicativeTests.cs" />
+    <Compile Include="CombinatorsTests.cs" />
+    <Compile Include="CompositionTests.cs" />
     <Compile Include="DataTypes\Arr\ArrTests.cs" />
     <Compile Include="DataTypes\Cond\CondTest.cs" />
     <Compile Include="DataTypes\Either\EitherApply.cs" />
     <Compile Include="DataTypes\Either\EitherCoalesceTests.cs" />
     <Compile Include="DataTypes\Either\EitherTests.cs" />
     <Compile Include="DataTypes\Either\EitherUnsafeApply.cs" />
-    <Compile Include="OptionTests.cs" />
+    <Compile Include="Divisible.cs" />
+    <Compile Include="EnumerableTTests.cs" />
+    <Compile Include="EqualityTests.cs" />
+    <Compile Include="ExceptionMatching.cs" />
+    <Compile Include="FloatTypeExtensionsTests.cs" />
+    <Compile Include="FunTests.cs" />
+    <Compile Include="DataTypes\HashMap\HashMapTests.cs" />
+    <Compile Include="DataTypes\HashSet\HashSetTests.cs" />
+    <Compile Include="IssuesTests.cs" />
+    <Compile Include="LinqTests.cs" />
+    <Compile Include="List.Predicate.Tests.cs" />
+    <Compile Include="ListMatchingTests.cs" />
+    <Compile Include="DataTypes\List\ListTests.cs" />
+    <Compile Include="DataTypes\Map\MapTests.cs" />
+    <Compile Include="Prelude\MemoTests.cs" />
+    <Compile Include="MonadTests.cs" />
+    <Compile Include="Multiplicable.cs" />
+    <Compile Include="DataTypes\NewType\NewTypeTests.cs" />
+    <Compile Include="NonNullTests.cs" />
+    <Compile Include="NullDefaultTests.cs" />
+    <Compile Include="DataTypes\Option\OptionApply.cs" />
+    <Compile Include="DataTypes\OptionAsync\OptionAsyncTests.cs" />
+    <Compile Include="DataTypes\Option\OptionCoalesceTests.cs" />
+    <Compile Include="DataTypes\Option\OptionLazy.cs" />
+    <Compile Include="DataTypes\Option\OptionTests.cs" />
+    <Compile Include="DataTypes\Option\OptionTTests.cs" />
+    <Compile Include="DataTypes\OptionUnsafe\OptionUnsafeApply.cs" />
+    <Compile Include="PartialAndCurryingTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryTests.cs" />
+    <Compile Include="DataTypes\Queue\QueueTests.cs" />
+    <Compile Include="RangeTests.cs" />
+    <Compile Include="Read-Me.cs" />
+    <Compile Include="ReflectTests.cs" />
+    <Compile Include="DataTypes\Seq\Seq.Arr.Tests.cs" />
+    <Compile Include="DataTypes\Seq\Seq.Cons.Tests.cs" />
+    <Compile Include="DataTypes\Seq\Seq.Enumerable.Tests.cs" />
+    <Compile Include="DataTypes\Seq\Seq.IList.Tests.cs" />
+    <Compile Include="DataTypes\Seq\Seq.Lst.Tests.cs" />
+    <Compile Include="DataTypes\Seq\Seq.Module.Tests.cs" />
+    <Compile Include="DataTypes\Seq\SeqTests.cs" />
+    <Compile Include="DataTypes\Set\SetTests.cs" />
+    <Compile Include="DataTypes\Stack\StackTests.cs" />
+    <Compile Include="Subtractable.cs" />
+    <Compile Include="DataTypes\Task\TaskTests.cs" />
+    <Compile Include="TraverseTests.cs" />
+    <Compile Include="DataTypes\Try\TryApply.cs" />
+    <Compile Include="DataTypes\TryAsync\TryAsyncTests.cs" />
+    <Compile Include="DataTypes\Try\TryMonadTests.cs" />
+    <Compile Include="DataTypes\TryOption\TryOption.cs" />
+    <Compile Include="DataTypes\TryOption\TryOptionApply.cs" />
+    <Compile Include="DataTypes\TryOption\TryOptionMonadTests.cs" />
+    <Compile Include="DataTypes\Try\TryOutTests.cs" />
+    <Compile Include="DataTypes\Try\TrySimpleTests.cs" />
+    <Compile Include="DataTypes\Tuple\TupleTests.cs" />
+    <Compile Include="TypeClassBiFunctor.cs" />
+    <Compile Include="TypeClassEQ.cs" />
+    <Compile Include="TypeClassFoldable.cs" />
+    <Compile Include="TypeClassFunctor.cs" />
+    <Compile Include="TypeClassMonad.cs" />
+    <Compile Include="TypeClassMonoid.cs" />
+    <Compile Include="TypeClassORD.cs" />
+    <Compile Include="DataTypes\UnitsOfMeasure\UnitsOfMeasureTests.cs" />
+    <Compile Include="UnsafeTests.cs" />
+    <Compile Include="DataTypes\Validation\ValidationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -89,6 +156,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataTypes\BigInt\" />
+    <Folder Include="DataTypes\FloatType\" />
+    <Folder Include="DataTypes\Identity\" />
+    <Folder Include="DataTypes\Nullable\" />
+    <Folder Include="DataTypes\Range\" />
+    <Folder Include="DataTypes\Reader\" />
+    <Folder Include="DataTypes\Result\" />
+    <Folder Include="DataTypes\Unit\" />
+    <Folder Include="DataTypes\ValueTuple\" />
+    <Folder Include="DataTypes\VectorClock\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
