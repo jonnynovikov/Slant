@@ -70,8 +70,11 @@
   <ItemGroup>
     <Compile Include="DataTypes\Arr\ArrTests.cs" />
     <Compile Include="DataTypes\Cond\CondTest.cs" />
+    <Compile Include="DataTypes\Either\EitherApply.cs" />
+    <Compile Include="DataTypes\Either\EitherCoalesceTests.cs" />
+    <Compile Include="DataTypes\Either\EitherTests.cs" />
+    <Compile Include="DataTypes\Either\EitherUnsafeApply.cs" />
     <Compile Include="OptionTests.cs" />
-    <Compile Include="SpecRunner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

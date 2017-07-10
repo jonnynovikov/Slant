@@ -157,14 +157,6 @@ namespace Slant.Tests
         }
 
         [Test]
-        public void NullableOrElseTest()
-        {
-            var res = GetNullable(true).GetOrElse(ret(0));
-            res.Should().Be(1000);
-            // Some(res).Should().Be(res);
-        }
-
-        [Test]
         public void NullableDenySomeNullTest()
         {
             act(() =>
