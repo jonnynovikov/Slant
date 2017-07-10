@@ -157,14 +157,6 @@ namespace Slant.Tests
         }
 
         [Test]
-        public void NullableOrElseTest()
-        {
-            var res = GetNullable(true).GetOrElse(ret(0));
-            res.Should().Be(1000);
-            Some(res).Should().Be(res);
-        }
-
-        [Test]
         public void NullableDenySomeNullTest()
         {
             act(() =>
@@ -221,35 +213,6 @@ namespace Slant.Tests
         {
             var option = Optional(new object());
             option.IsSome.Should().BeTrue();
-        }
-
-        [Test]
-        public void ShouldReturnSelfOnOrElseIfValueIsPresent()
-        {
-            var opt = SomeInteger();
-            opt.OrElse(Optional(0)).Should().Be(opt);
-        }
-
-        [Test]
-        public void ShouldReturnSelfOnOrElseSupplierIfValueIsPresent()
-        {
-            var opt = SomeInteger();
-            opt.OrElse(() => Optional(0)).Should().Be(opt);
-            opt.OrElse(ret(Optional(0))).Should().Be(opt);
-            opt.OrElse(retOptional(0)).Should().Be(opt);
-        }
-
-        [Test]
-        public void ShouldReturnAlternativeOnOrElseIfValueIsNotDefined()
-        {
-            var opt = SomeInteger();
-            Option<int>.None.OrElse(opt).Should().Be(opt);
-        }
-
-        [Test]
-        public void ShouldMapSome()
-        {
-            Optional(1).Map(toString).Should().Be(Some("1"));
         }
 
         [Test]
